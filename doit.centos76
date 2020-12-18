@@ -1,0 +1,7 @@
+#$!/bin/sh
+if [ -d tftpboot ] ; then
+	rm -rf tftpboot
+fi
+livecd-creator -d -c stx-prvsnr-centos76.ks -f "johns-live-76" --title="johns-live-76" --product="John-S"  $@ && \
+livecd-iso-to-pxeboot ./stx-prvsnr.iso && \
+rm -rf *.iso
